@@ -78,14 +78,8 @@ thesis: $(THESISMAIN).pdf
 
 ifeq ($(METHOD),xelatex)
 
-$(THESISMAIN).pdf: $(CLSFILES) $(THESISCONTENTS) $(THESISMAIN).bbl
-	xelatex $(THESISMAIN).tex
-	xelatex $(THESISMAIN).tex
-
-$(THESISMAIN).bbl: $(BIBFILE)
-	xelatex $(THESISMAIN).tex
-	-bibtex $(THESISMAIN)
-	rm $(THESISMAIN).pdf
+$(THESISMAIN).pdf:
+	latexmk -pdf -pdflatex="xelatex -syntex=1" $(THESISMAIN).tex
 
 else ifeq ($(METHOD),pdflatex)
 
