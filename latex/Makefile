@@ -27,7 +27,7 @@ CLSFILES=dtx-style.sty $(PACKAGE).cls $(PACKAGE).cfg
 
 .PHONY: all clean distclean dist thesis shuji doc cls
 
-all: doc thesis shuji
+all: cls thesis shuji
 
 ###### generate cls/cfg
 cls: $(CLSFILES)
