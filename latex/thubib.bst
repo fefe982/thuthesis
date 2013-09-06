@@ -282,11 +282,26 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr
-      %"{ff }{ll}"
-      "{ll }{f{~}}"    
-      format.name$
-      remove.dots
+    { 
+      lang empty$ 
+        { s nameptr "{ll }{f{~}}" format.name$ 
+             remove.dots
+        }
+        {
+          lang "zh" =
+          {
+            s nameptr
+            %"{ff }{ll}"
+            "{ll}{ff}"    
+            format.name$
+          }
+          { s nameptr "{ll }{f{~}}" format.name$ 
+            remove.dots
+          }
+          if$
+        }
+      if$
+      
       %bibinfo bibinfo.check
       't :=
       nameptr #1 >
