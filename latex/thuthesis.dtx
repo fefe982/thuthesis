@@ -1528,12 +1528,12 @@
 \def\ps@thu@headings{%
   \def\@oddhead{\vbox to\headheight{%
     \hb@xt@\textwidth{\hfill\wuhao\songti\leftmark\ifthu@bachelor\relax\else\hfill\fi}%
-      \vskip2pt\hbox{\vrule width\textwidth height0.4pt depth0pt}}}
+      \vskip2pt\hbox{\vrule width\textwidth height0.4pt depth0pt}\vfill}}
   \def\@evenhead{\vbox to\headheight{%
       \hb@xt@\textwidth{\wuhao\songti%
       \ifthu@bachelor\thu@schoolname\thu@bachelor@subtitle%
        \else\hfill\leftmark\fi\hfill}%
-      \vskip2pt\hbox{\vrule width\textwidth height0.4pt depth0pt}}}
+      \vskip2pt\hbox{\vrule width\textwidth height0.4pt depth0pt}\vfill}}
   \def\@oddfoot{\hfil\wuhao\thepage\hfil}
   \let\@evenfoot=\@oddfoot}
 %    \end{macrocode}
@@ -2300,7 +2300,7 @@
   \ifthu@bachelor
     \def\thu@author@title{姓名}
   \else
-    \def\thu@author@title{研究生}
+    \def\thu@author@title{研\hfill{}究\hfill{}生}
   \fi
 \fi
 \def\thu@postdoctor@first@discipline@title{流动站（一级学科）名称}
@@ -2314,13 +2314,13 @@
   \def\thu@department@title{系别}
   \def\thu@major@title{专业}
 \else
-  \def\thu@department@title{培养单位}
-  \def\thu@major@title{学科}
+\def\thu@department@title{培\hfill{}养\hfill{}单\hfill{}位}
+  \def\thu@major@title{学\hfill{}科}
 \fi
 \ifthu@postdoctor
   \def\thu@supervisor@title{合作导师}
 \else
-  \def\thu@supervisor@title{指导教师}
+  \def\thu@supervisor@title{指\hfill{}导\hfill{}教\hfill{}师}
 \fi
 \ifthu@bachelor
   \def\thu@assosuper@title{辅导教师}
